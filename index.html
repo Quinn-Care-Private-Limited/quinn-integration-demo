@@ -1,13 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Quinn demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Your other head tag contents -->
+
+    <script
+      src="https://assets.quinn.live/quinnlive-general.netlify.app/quinn-init.js"
+      defer
+    ></script>
+
+    <script
+      src="https://assets.quinn.live/general/quinn-vendor.bundle.js"
+      defer
+    ></script>
+
+    <script
+      src="https://assets.quinn.live/general/quinn-live.bundle.js"
+      defer
+    ></script>
+
+    <!-- Include the Quinn Card Widget SDK script -->
+    <script
+      src="https://assets.quinn.live/general/quinn-cards.bundle.js"
+      defer
+    ></script>
+
+    <!-- Include the Quinn Story Widget SDK script -->
+    <script
+      src="https://assets.quinn.live/general/quinn-story.bundle.js"
+      defer
+    ></script>
+
+    <!-- Include the Quinn Story Widget SDK script -->
+    <script
+      src="https://assets.quinn.live/general/quinn-floating.bundle.js"
+      defer
+    ></script>
+    <style>
+      * {
+        font-family: "Readex Pro", sans-serif;
+      }
+      .widget-heading {
+        text-align: center;
+      }
+    </style>
+    <!-- Your other head tag contents -->
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div id="root">
+      <h1 class="widget-heading">Quinn Story</h1>
+      <div id="quinn-story-1"></div>
+      <h1 class="widget-heading">Quinn Carousel</h1>
+      <div id="quinn-card-1"></div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        window.Quinn.functions.renderQuinn({
+          widgetType: "cards",
+          target: "#quinn-card-1",
+          playlistId:
+            "quinnlive-general.netlify.app/5c36733613be434ea98ebd6a85ce90f5a447d3c52d52b47a027602b8080890b3.json",
+        });
+        window.Quinn.functions.renderQuinn({
+          widgetType: "story",
+          target: "#quinn-story-1",
+          playlistId:
+            "quinnlive-general.netlify.app/7021f5c262e0e9f4ad8b6c9a3bc8c045c2774d0e37d0c4c32f1cf0168444daf2.json",
+        });
+        window.Quinn.functions.renderQuinn({
+          widgetType: "floating",
+          playlistId:
+            "quinnlive-general.netlify.app/18d7ed8c62118eccb7422f034f91b7917a5dff12c1b7f79ae2275b084a368101.json",
+        });
+      });
+    </script>
   </body>
 </html>
